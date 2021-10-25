@@ -1,0 +1,13 @@
+.buttonWrapper.left {
+    margin-right: 5px;
+}
+
+.buttonWrapper.right {
+    margin-left: 5px;
+}
+
+.paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

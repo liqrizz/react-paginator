@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, {useState} from "react";
+import { createContext } from 'react';
+import {IPaginatorState} from "./componets/Paginator/models/Paginator.models";
+import Paginator from "./componets/Paginator/Paginator";
+export const setPageStateContext = createContext((value: React.SetStateAction<IPaginatorState>) => {});
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [pageState, setPageState] = useState<IPaginatorState>({
+        currentPage: 1,
+        pageCount: 12,
+        pagesPerPage: 5
+    });
+
+    return (
+        <div className="App">
+            <setPageStateContext.Provider value={setPageState}>
+                <Paginator
+                    currentPage={pageState.currentPage}
+                    pagesPerPage={pageState.pagesPerPage}
+                    pageCount={pageState.pageCount}
+                />
+            </setPageStateContext.Provider>
+        </div>
+    );
 }
-
-export default App;
