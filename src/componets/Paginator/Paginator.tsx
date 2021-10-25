@@ -56,7 +56,7 @@ const Paginator = ({pageCount, currentPage, pagesPerPage}: IPaginatorProps) => {
     return (
         <div className={CSS_CLASSES.paginator}>
             <div className={CSS_CLASSES.left}>
-                <Button onClick={(e) => prev()}>
+                <Button onClick={(e) => prev()} disabled={currentPage === 1}>
                     {"<"}
                 </Button>
             </div>
@@ -64,7 +64,7 @@ const Paginator = ({pageCount, currentPage, pagesPerPage}: IPaginatorProps) => {
             {genPageItems(pages)}
 
             <div className={CSS_CLASSES.right}>
-                <Button onClick={(e) => next()}>
+                <Button onClick={(e) => next()} disabled={currentPage === pageCount}>
                     {">"}
                 </Button>
             </div>

@@ -7,3 +7,8 @@
     background: no-repeat;
     background: #eee;
 }
+
+.mainButton[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
